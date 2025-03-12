@@ -4,23 +4,16 @@ using namespace std;
 class Solution {
     public:
         int removeElement(vector<int>& nums, int val) {
-            for(int i=0;i<nums.size();i++){
-                if(nums[i]==val){
-                    bool flag=false;
-                    for(int j=i+1;j<nums.size();j++){
-                        if(nums[j] != val){
-                            swap(nums[j],nums[i]);
-                            flag=true;
-                            break;
-                        }
-                    }
-                    if(!flag) return i;
+            int i=0;
+            for(int j=0;j<nums.size();j++){
+                if(nums[j] != val){
+                swap(nums[i],nums[j]);
+                i++;
                 }
             }
-            return nums.size();
+            return i;
             
         }
-        
     };
 
 int main(){
@@ -38,3 +31,5 @@ int main(){
     cout<<obj.removeElement(nums,val)<<endl;
     return 0;
 }
+
+// Time Complexity: O(n^2)
